@@ -7,11 +7,8 @@
     "node": ">=6"
   },
   "scripts": {
-    "build": "npm run build:browserify-app && npm run build:browserify-lib",
-    "build:browserify-app": "browserify --ignore @babel/core browser-tool.js -o build/browser-tool.js -p tinyify",
-    "build:browserify-lib": "browserify --ignore @babel/core bookmarkleter.js -o build/bookmarkleter.js -p tinyify",
-    "coverage": "istanbul cover nodeunit test",
-    "test": "npm run coverage"
+    "build": "npm run build:browserify",
+    "build:browserify": "browserify --ignore @babel/core bookmarkleter.js -o build/bookmarkleter.js -p tinyify -t [ babelify ]"
   },
   "repository": {
     "type": "git",
@@ -24,10 +21,9 @@
   },
   "homepage": "https://github.com/chriszarate/bookmarkleter",
   "devDependencies": {
-    "angular": "1.8.3",
+    "@babel/core": "^7.21.3",
+    "babelify": "^10.0.0",
     "browserify": "17.0.0",
-    "istanbul": "0.4.5",
-    "nodeunit": "0.11.3",
     "tinyify": "4.0.0"
   },
   "dependencies": {
