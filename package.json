@@ -7,8 +7,9 @@
     "node": ">=6"
   },
   "scripts": {
-    "build": "npm run build:browserify",
-    "build:browserify": "browserify --ignore @babel/core browser-tool.js -o build/browser-tool.js -p tinyify",
+    "build": "npm run build:browserify-app && npm run build:browserify-lib",
+    "build:browserify-app": "browserify --ignore @babel/core browser-tool.js -o build/browser-tool.js -p tinyify",
+    "build:browserify-lib": "browserify --ignore @babel/core bookmarkleter.js -o build/bookmarkleter.js -p tinyify",
     "coverage": "istanbul cover nodeunit test",
     "test": "npm run coverage"
   },
